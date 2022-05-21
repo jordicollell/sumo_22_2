@@ -2,10 +2,10 @@ let P5 = 0
 let P9 = 0
 let alerta_2 = 0
 let gir = 0
-let P11 = 0
 let sonar_2 = 0
-let sonar_1 = 0
+let P11 = 0
 let alerta_1 = 0
+let sonar_1 = 0
 function davant () {
     while (P5 == 1 && P9 == 1 && alerta_2 == 0) {
         motorbit.forward(100)
@@ -24,10 +24,19 @@ function enrrere_girar () {
     } else {
         motorbit.freestyle(-50, 50)
     }
+    basic.pause(500)
+    if (sonar_2 == 1) {
+        darrere()
+    } else {
+        davant()
+    }
 }
 function darrere () {
     while (P11 == 1) {
         motorbit.forward(100)
+    }
+    if (alerta_1 == 1) {
+        davant()
     }
 }
 basic.forever(function () {
